@@ -1,0 +1,16 @@
+tags:
+  - Authentication
+summary: Logout user
+operationId: logoutUser
+description: 'Logs out the currently authenticated user by invalidating the session or token'
+security:
+  - bearerAuth: []
+responses:
+  '204':
+    description: User successfully logged out
+  '400':
+    $ref: '../../components/responses/400.yaml'
+  '401':
+    $ref: '../../components/responses/401.yaml'
+  '500':
+    $ref: '../../components/responses/500.yaml'

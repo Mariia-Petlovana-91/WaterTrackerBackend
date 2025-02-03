@@ -12,17 +12,15 @@ import SessionCollections from '../db/models/User.js';
 
 import { getEnvVar } from '../utils/getEnvVar.js';
 
-export const registerUser = async (payload) => {
-  const user = await UserCollections.findOne({ email: payload.email });
-  if (user) throw createHttpError(409, 'Email in use');
 
+export const registerUser = async (payload) => {
   const encryptedPassword = await bcrypt.hash(payload.password, 10);
 
   return await UserCollections.create({
     ...payload,
     password: encryptedPassword,
   });
-};;
+};
 
 export const loginUser = async ({ email, password }) => {
   const user = SessionCollections.find({ email });
@@ -47,7 +45,10 @@ export const loginUser = async ({ email, password }) => {
 
 export const refresh = async () => {};
 
-export const logout = async () => {};
+export const logout = async (sessionId) => {
+  await SessionCollections.deleteOne({ _id: sessionId });
+};
+
 
 export const getUser = (filter) => UserCollections.findOne(filter);
 
