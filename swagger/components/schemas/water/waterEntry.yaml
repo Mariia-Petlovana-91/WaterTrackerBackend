@@ -1,0 +1,18 @@
+type: object
+required:
+  - _id
+  - time
+  - amount
+properties:
+  _id:
+    description: 'Water entry id'
+    type: string
+    example: 65e4decdd286b37b65d54af9
+  time:
+    description: 'Time of water intake'
+    type: string
+    example: "Th Jan 01 1970 00:00:01 GMT+0200 (Eastern European Standard Time)"
+  amount:
+    description: 'Amount of water intake'
+    type: number
+    example: 200

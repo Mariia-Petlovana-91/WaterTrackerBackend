@@ -15,4 +15,7 @@ export const updateUserById = async (userId, updatedData) => {
   return updatingResult;
 };
 
-export const updateAvatarById = async (userId, avatarURL) => {};
+export const updateAvatarById = async (userId, avatarURL) => {
+  const Hello="world";
+  console.log(Hello);
+};

@@ -1,7 +1,6 @@
 import Joi from 'joi';
 
-/* закоментований код - це пропозиція щодо змін в схемі, які будуть валідувати формат час який заходить в базу */
-// import { waterRegexp } from "../constants/water.js";
+import { waterRegexp } from '../constants/water.js';
 
 export const waterEntrySchema = Joi.object({
   amount: Joi.number().integer().min(50).max(5000).messages({
@@ -9,12 +8,11 @@ export const waterEntrySchema = Joi.object({
     'number.min': 'Amount must be at least 50.',
     'number.max': 'Amount must be no more than 5000.',
   }),
-
-  time: Joi.string().messages({
+  time: Joi.string().regex(waterRegexp).messages({
     'string.base': 'Time must be a string.',
+    'string.pattern.base': 'Time format is invalid.',
   }),
-
-  // time: Joi.string().regex(waterRegexp)
+  userId: Joi.string().required(),
 });
 
 export const dailyGoalSchema = Joi.object({

@@ -6,7 +6,7 @@ const waterEntrySchema = new Schema({
   time: {
     type: String,
     required: false,
-    default: () => new Date(),
+    default: () => new Date().toISOString(),
   },
   amount: {
     type: Number,
@@ -18,9 +18,7 @@ const waterEntrySchema = new Schema({
 
 const waterTrackingSchema = new Schema({
   userId: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-    required: true,
+    type: String,
   },
   date: {
     type: String, // YYYY-MM-DD
@@ -43,13 +41,12 @@ const waterTrackingSchema = new Schema({
   },
 });
 
-// 🔹 Функція для перерахунку прогресу
+//  Функція для перерахунку прогресу
 const calculateProgress = (entries, dailyGoal) => {
   const totalConsumed = entries.reduce((sum, entry) => sum + entry.amount, 0);
   return dailyGoal > 0 ? Math.min((totalConsumed / dailyGoal) * 100, 100) : 0;
 };
 
-// 🔹 Оновлення `progress` перед збереженням нового запису
 waterTrackingSchema.pre('save', function (next) {
   this.progress = calculateProgress(this.entries, this.dailyGoal);
   next();
@@ -58,21 +55,18 @@ waterTrackingSchema.pre('save', function (next) {
 waterTrackingSchema.pre('findOneAndUpdate', async function (next) {
   const update = this.getUpdate();
 
-  // Отримуємо поточний запис перед оновленням
   const existingDoc = await this.model.findOne(this.getQuery());
 
   if (!existingDoc) {
-    return next(); // Якщо документа немає, оновлювати нічого
+    return next();
   }
 
-  let updatedEntries = [...existingDoc.entries]; // Створюємо копію поточного масиву entries
+  let updatedEntries = [...existingDoc.entries];
 
-  // 🔹 Якщо додається новий запис ($push)
   if (update.$push && update.$push.entries) {
     updatedEntries.push(update.$push.entries);
   }
 
-  // 🔹 Якщо видаляється запис ($pull)
   if (update.$pull && update.$pull.entries) {
     const condition = update.$pull.entries;
     updatedEntries = updatedEntries.filter((entry) => {
@@ -82,7 +76,6 @@ waterTrackingSchema.pre('findOneAndUpdate', async function (next) {
     });
   }
 
-  // 🔹 Якщо оновлюється окремий `entry` ($set)
   if (update.$set && update.$set['entries.$']) {
     const updatedEntry = update.$set['entries.$'];
     updatedEntries = updatedEntries.map((entry) =>
@@ -92,7 +85,6 @@ waterTrackingSchema.pre('findOneAndUpdate', async function (next) {
     );
   }
 
-  // Використовуємо оновлений список `entries` для перерахунку прогресу
   update.$set = update.$set || {};
   update.$set.progress = calculateProgress(
     updatedEntries,

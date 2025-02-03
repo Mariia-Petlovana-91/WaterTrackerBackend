@@ -1,0 +1,143 @@
+[
+  {
+    "userId": "65a4e8fbc3a4b2d6f8a12e34",
+    "date": "2025-02-02",
+    "dailyGoal": 2500,
+    "entries": [
+      {
+        "_id": "65a4e900c3a4b2d6f8a12e35",
+        "time": "2025-02-02T08:30:00Z",
+        "amount": 300
+      },
+      {
+        "_id": "65a4e901c3a4b2d6f8a12e36",
+        "time": "2025-02-02T11:45:00Z",
+        "amount": 500
+      }
+    ],
+    "progress": 800
+  },
+  {
+    "userId": "65a4e8fbc3a4b2d6f8a12e37",
+    "date": "2025-02-02",
+    "dailyGoal": 3000,
+    "entries": [
+      {
+        "_id": "65a4e902c3a4b2d6f8a12e38",
+        "time": "2025-02-02T09:00:00Z",
+        "amount": 400
+      }
+    ],
+    "progress": 400
+  },
+  {
+    "userId": "65a4e8fbc3a4b2d6f8a12e39",
+    "date": "2025-02-02",
+    "dailyGoal": 2000,
+    "entries": [
+      {
+        "_id": "65a4e903c3a4b2d6f8a12e3A",
+        "time": "2025-02-02T07:15:00Z",
+        "amount": 250
+      },
+      {
+        "_id": "65a4e904c3a4b2d6f8a12e3B",
+        "time": "2025-02-02T12:30:00Z",
+        "amount": 350
+      },
+      {
+        "_id": "65a4e905c3a4b2d6f8a12e3C",
+        "time": "2025-02-02T18:00:00Z",
+        "amount": 500
+      }
+    ],
+    "progress": 1100
+  },
+  {
+    "userId": "65a4e8fbc3a4b2d6f8a12e3D",
+    "date": "2025-02-02",
+    "dailyGoal": 3500,
+    "entries": [
+      {
+        "_id": "65a4e906c3a4b2d6f8a12e3E",
+        "time": "2025-02-02T10:00:00Z",
+        "amount": 500
+      },
+      {
+        "_id": "65a4e907c3a4b2d6f8a12e3F",
+        "time": "2025-02-02T14:45:00Z",
+        "amount": 750
+      }
+    ],
+    "progress": 1250
+  },
+  {
+    "userId": "65a4e8fbc3a4b2d6f8a12e40",
+    "date": "2025-02-02",
+    "dailyGoal": 1800,
+    "entries": [
+      {
+        "_id": "65a4e908c3a4b2d6f8a12e41",
+        "time": "2025-02-02T06:45:00Z",
+        "amount": 200
+      },
+      {
+        "_id": "65a4e909c3a4b2d6f8a12e42",
+        "time": "2025-02-02T09:30:00Z",
+        "amount": 400
+      },
+      {
+        "_id": "65a4e90Ac3a4b2d6f8a12e43",
+        "time": "2025-02-02T17:15:00Z",
+        "amount": 600
+      }
+    ],
+    "progress": 1200
+  },
+  {
+    "userId": "65a4e8fbc3a4b2d6f8a12e39",
+    "date": "2025-02-04",
+    "dailyGoal": 2000,
+    "entries": [
+      {
+        "_id": "65a4e903c3a4b2d6f8a12e3A",
+        "time": "2025-02-02T07:15:00Z",
+        "amount": 250
+      },
+      {
+        "_id": "65a4e904c3a4b2d6f8a12e3B",
+        "time": "2025-02-02T12:30:00Z",
+        "amount": 350
+      },
+      {
+        "_id": "65a4e905c3a4b2d6f8a12e3C",
+        "time": "2025-02-02T18:00:00Z",
+        "amount": 500
+      }
+    ],
+    "progress": 1100
+  },
+  {
+    "userId": "65a4e8fbc3a4b2d6f8a12e39",
+    "date": "2025-03-04",
+    "dailyGoal": 2000,
+    "entries": [
+      {
+        "_id": "65a4e903c3a4b2d6f8a12e3A",
+        "time": "2025-02-02T07:15:00Z",
+        "amount": 250
+      },
+      {
+        "_id": "65a4e904c3a4b2d6f8a12e3B",
+        "time": "2025-02-02T12:30:00Z",
+        "amount": 350
+      },
+      {
+        "_id": "65a4e905c3a4b2d6f8a12e3C",
+        "time": "2025-02-02T18:00:00Z",
+        "amount": 500
+      }
+    ],
+    "progress": 1100
+  }
+]

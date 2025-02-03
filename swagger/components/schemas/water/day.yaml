@@ -1,0 +1,30 @@
+type: object
+required:
+  - _id
+  - date
+  - dailyGoal
+  - userId
+properties:
+  _id:
+    description: 'Day id'
+    type: string
+    example: 65e4decdd286b37b65d54af9
+  date:
+    description: 'Date in YYYY-MM-DD format'
+    type: string,
+    example: '1970-01-01'
+  dailyGoal:
+    description: 'Water consumption goal in ml'
+    type: number,
+    example: 1500
+  userId:
+    description: 'User id'
+    type: string
+    example: 65e4decdd286b36665d54af9
+  progress:
+    description: "Progress of water consumption"
+    type: number
+    example: 50
+  entries:
+    description: "Water consumption entries array"
+    type: array

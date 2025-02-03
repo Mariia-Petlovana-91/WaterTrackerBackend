@@ -1,0 +1,26 @@
+tags:
+  - Water
+summary: Update a specific water entry
+operationId: updateWaterEntry
+description: 'Update water entry by id'
+security:
+  - bearerAuth: []
+parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: integer
+      example: '65ca67e7ae7f10c88b598384'
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          time:
+            type: string
+            description: Update time of water consumption (HH:mm format)
+            example: '10:30'
+          amount:
+            type: string

@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import * as waterControllers from '../controllers/waterControllers.js';
+import * as waterControllers from '../controllers/water.js';
 
 import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 
@@ -11,7 +11,7 @@ import { waterEntrySchema, dailyGoalSchema } from '../validation/water.js';
 
 const waterRouter = Router();
 
-waterRouter.use(authenticate);
+// waterRouter.use(authenticate);
 // Додавання запису по спожитій воді
 waterRouter.post(
   '/water-entry',
@@ -22,11 +22,11 @@ waterRouter.post(
 // Редагування запису по спожитій воді
 waterRouter.patch(
   '/water-entry/:id',
+  // T9-updateWaterEntr
   validateBody(waterEntrySchema),
   ctrlWrapper(waterControllers.updateWaterEntryController),
 );
 
-// Видалення запису по спожитій воді
 waterRouter.delete(
   '/water-entry/:id',
   ctrlWrapper(waterControllers.deleteWaterEntryController),

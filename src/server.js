@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
-// import waterRouter from './routers/water.js';
+import waterRouter from './routers/water.js';
 import userRouter from './routers/user.js';
 import authRouter from './routers/auth.js';
 
@@ -47,9 +47,9 @@ export const setupServer = () => {
   app.use(express.static('uploads'));
   app.use(cookieParser());
 
-  app.use(logger);
+  // app.use(logger);
 
-  // app.use('/water', waterRouter);
+  app.use('/water', waterRouter);
   app.use('/user', userRouter);
   app.use('/auth', authRouter);
   app.use('/api-docs', swaggerDocs());
