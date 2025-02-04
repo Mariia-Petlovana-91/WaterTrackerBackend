@@ -62,6 +62,27 @@ export const deleteWaterEntry = async (_id, userId) => {
   if (result.modifiedCount === 0) {
     throw new Error('Entry not found');
   }
+
+  // progress recalculation after deleting entry
+  await DayCollections.updateOne({ userId: userId }, [
+    {
+      $set: {
+        progress: {
+          $min: [
+            100,
+            {
+              $multiply: [
+                {
+                  $divide: [{ $sum: '$entries.amount' }, '$dailyGoal'],
+                },
+                100,
+              ],
+            },
+          ],
+        },
+      },
+    },
+  ]);
 };
 
 // Отримання денної статистики
